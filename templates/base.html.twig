@@ -6,6 +6,20 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% if app.user %}
+    	<nav>
+			<a href="{{ path('product_index') }}">Produit</a>	
+			<a href="{{ path('category_index') }}">Catégorie</a>
+			<a href="{{ path('brand_index') }}">Marque</a>
+			<a href="{{ path('color_index') }}">Couleur</a>
+			<a href="{{ path('size_index') }}">Taille</a>
+			<a href="{{ path('stock_index') }}">Stock</a>
+            
+                <div class="mb-3">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+		</nav>
+            {% endif %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
